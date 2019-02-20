@@ -34,4 +34,7 @@ class User < ApplicationRecord
       end
     end
   end
+  
+  enum role: [:standard, :premium, :admin]
+  after_initialize { self.role ||= :standard }
 end
