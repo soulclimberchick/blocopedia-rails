@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'wikis/new'
   get 'wikis/edit'
   get 'welcome/about'
-  devise_for :users, controllers: { sessions: 'users/sessions' }
+  devise_for :users
   root 'wikis#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
