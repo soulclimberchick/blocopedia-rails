@@ -16,7 +16,7 @@ users = User.all
   Wiki.create!(
     user: users.sample,
     title: Faker::Lorem.sentence(6),
-    body: Faker::Lorem.paragraphs,
+    body: Faker::Lorem.paragraphs.join("."),
   )
 end
 
