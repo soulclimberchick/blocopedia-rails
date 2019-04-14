@@ -76,4 +76,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass'
 gem 'pundit'
 gem 'faker'
+gem 'stripe'
+gem 'figaro', '1.0'
 gem 'redcarpet'
