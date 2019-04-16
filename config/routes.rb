@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'wikis/new'
   get 'wikis/edit'
   get 'welcome/about'
+<<<<<<< HEAD
 
 
   devise_for :users
@@ -18,4 +19,9 @@ Rails.application.routes.draw do
   end
 
   root 'welcome#index'
+=======
+  devise_for :users
+  root 'wikis#index'
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+>>>>>>> user-story-8-markdown
 end
