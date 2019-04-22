@@ -66,7 +66,7 @@ before_action :authenticate_user!
   end
 
   private
-  
+
   def wiki_params
     params.require(:wiki).permit(:title, :body, :private)
   end

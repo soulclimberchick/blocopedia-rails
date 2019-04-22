@@ -30,4 +30,11 @@ class ChargesController < ApplicationController
       flash[:alert] = e.message
       redirect_to new_charge_path
   end
+
+    def downgrade
+    current_user.update_attribute(:role, 'standard')
+    current_user.wikis.update_all(private: false)
+    flash[:notice] = "You have successfully downgraded your account. Your wikis are now public."
+    redirect_to edit_user_registration_path
+  end
 end

@@ -33,10 +33,10 @@
   </div>
 <% end %>
 
-<% if current_user.role == 'standard' %>
+<% if current_user.admin? || current_user.standard? %>
   <h3>Become a Premium Member</h3>
   <p>Gain access to have private wikis</p> <%= link_to "Update Membership", new_charge_path, class: 'btn btn-success' %>
-<% else current_user.role == 'premium'  %>
+<% else current_user.admin? || current_user.premium?  %>
   <h3>Cancel Your Premium Membership</h3>
   <p>Tired of your membership?</p> <%= link_to "Cancel Premium Membership", charges_downgrade_path, method: :delete,  class: 'btn btn-danger', data: {confirm: 'Are you sure you want to downgrade? You will have to pay another $15 to get premium features back on your account, and your private wikis will become public.'} %>
 <% end %>

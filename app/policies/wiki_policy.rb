@@ -5,8 +5,7 @@ class WikiPolicy < ApplicationPolicy
   end
 
   def show?
-    :user_signed_in?
-    scope.where(:id => record.id).exists?
+    !@record.private? || (@user && @record.private? && (@record.user_id == @user.id || @user.admin?) )
   end
 
   def create?

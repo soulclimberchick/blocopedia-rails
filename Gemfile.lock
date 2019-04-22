@@ -78,11 +78,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-<<<<<<< HEAD
     concurrent-ruby (1.1.5)
-=======
-    concurrent-ruby (1.1.4)
->>>>>>> user-story-8-markdown
     connection_pool (2.2.2)
     crass (1.0.4)
     devise (4.6.1)
@@ -292,11 +288,7 @@ DEPENDENCIES
   shoulda
   spring
   spring-watcher-listen (~> 2.0.0)
-<<<<<<< HEAD
   sqlite3 (~> 1.3, < 1.4)
-=======
-  sqlite3
->>>>>>> user-story-8-markdown
   stripe
   turbolinks (~> 5)
   tzinfo-data
