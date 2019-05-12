@@ -281,6 +281,7 @@ DEPENDENCIES
   pundit
   rails (~> 5.2.0)
   rails-controller-testing
+  rake
   redcarpet
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)

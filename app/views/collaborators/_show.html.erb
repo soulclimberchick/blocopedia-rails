@@ -1,0 +1,13 @@
+<% if @wiki.private? %>
+  <div>
+    <% if @wiki.collaborators.any? %>
+      <h3>Remove Collaborators</h3>
+      <% @wiki.collaborators.each do |c| %>
+        <h5><%= c.user.email %></h5>
+        <%= link_to "Delete", wiki_collaborator_path(@wiki, c), method: :delete, class: 'btn btn-success', data: {confirm: 'Are you sure you want to delete this collaborator?'} %>
+      <% end %>
+    <% else %>
+      <p>No collaborators for this Wiki yet</p>
+    <% end %>
+  </div>
+<% end %>

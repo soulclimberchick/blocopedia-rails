@@ -1,12 +1,11 @@
 class WikisController < ApplicationController
-before_action :authenticate_user!
   before_action :authenticate_user!, except: :index
-  after_action :verify_authorized, unless: :devise_controller?
+  after_action :verify_authorized, except: :index
 
 
   def index
-    @wikis = Wiki.all
-    authorize @wikis
+    @wikis = policy_scope(Wiki)
+
   end
 
   def show
@@ -23,7 +22,6 @@ before_action :authenticate_user!
     @wiki = Wiki.new(wiki_params)
     @wiki.user = current_user
     authorize @wiki
-
     if @wiki.save
       flash[:notice] = "Wiki was saved."
        redirect_to @wiki
@@ -36,13 +34,14 @@ before_action :authenticate_user!
   def edit
     @wiki = Wiki.find(params[:id])
     authorize @wiki
+    @collaborator = Collaborator.all
+    @selected_collaborators = []
   end
 
   def update
     @wiki = Wiki.find(params[:id])
     @wiki.assign_attributes(wiki_params)
     authorize @wiki
-
     if @wiki.save
       flash[:notice] = "Wiki was updated."
       redirect_to @wiki
@@ -55,7 +54,6 @@ before_action :authenticate_user!
   def destroy
     @wiki = Wiki.find(params[:id])
     authorize @wiki
-
     if @wiki.destroy
       flash[:notice] = "\"#{@wiki.title}\" was deleted."
       redirect_to wikis_path
